@@ -1,0 +1,83 @@
+{% load static %}
+
+
+   <html>
+   <head>
+       <meta charset='utf-8'>
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="description" content="">
+
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" type="text/css" href="{% static 'accounts/stl.css' %}">
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+       <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" type="text/css" rel="stylesheet">
+       <link href="{% static 'css/simple-sidebar.css' %}" type="text/css" rel="stylesheet">
+       <link rel="icon" href="{% static 'img/favicon.png' %}">
+
+       {% block head %}
+
+
+       <title></title>
+       {% endblock %}
+   </head>
+   <body>
+
+
+<div id='cssmenu'>
+
+    <img src="{% static 'img/logo.png' %}" class="header">
+    <h4 class="logo" >Département d'Informatique</h4>
+
+    {% if user.is_authenticated %}
+    <ul>
+
+
+    <li ><a class="nav navbar-nav navbar-right" href="{% url 'logout' %}">Log out</a></li>
+
+    <li><a href="{% url 'change_password' %}"><span>change pass</span></a></li>
+    <li><a href="{% url 'profile' %}">Profile</a></li>
+        <li><a href="{% url 'home' %}"><span>Home</span></a></li>
+
+
+
+
+
+</ul>
+  {% endif %}
+</div>
+
+{% block body %}
+{% endblock %}
+
+
+
+
+   </body>
+
+
+
+     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <script>
+          $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+    </script>
+ <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+   <script src="{% static 'accounts\script.js' %}"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</html>
+
+
+
+
+

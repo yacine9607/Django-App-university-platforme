@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>consulter_PV</title>
+{% endblock %}
+{% block body %}
+<div class="container">
+    {% if semestre1 %}
+
+
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active">
+    Pv Semestre 1
+  </a>
+{% for pv1 in semestre1 %}
+<a href="{{ pv1.file.url }}" class="list-group-item list-group-item-action">{{ pv1.description }}</a>
+      {% endfor %}
+
+ {% endif %}
+  {% if semestre2 %}
+  <div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active">
+    Pv Semestre 2
+  </a>
+
+
+   {% for pv2 in semestre2 %}
+<a href="{{ pv1.file.url }}" class="list-group-item list-group-item-action">{{ pv2.description }}</a>
+
+      {% endfor %}
+
+
+  {% endif %}
+</div>
+{% endblock %}

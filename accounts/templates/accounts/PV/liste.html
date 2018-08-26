@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Liste</title>
+
+{% endblock %}
+{% block body %}
+<div class="border border-info">
+<div class="tbl">
+<table class="table">
+  <thead class="thead-primary">
+    <tr>
+      <th scope="col">Nom Etudiant</th>
+
+      <th scope="col">Parcour</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">filiere</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for et in etudiant %}
+
+
+    <tr>
+      <th scope="row">{{ et.User.first_name }} {{ et.User.last_name }}</th>
+      <td>{{ et.parcour.nom }}</td>
+      <td>{{ et.phone }}</td>
+      <td>{{ et.User.email }}</td>
+        <td>{{ et.filiere }}</td>
+
+
+
+    </tr>
+
+
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+    </div>
+{% endblock %}

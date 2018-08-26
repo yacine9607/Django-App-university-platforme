@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Emploi_du_temp</title>
+{% endblock %}
+{% block body %}
+<div class="container">
+<div class="list-group">
+
+  <h5><u>Emploi du temps {{ user.first_name }} {{ user.last_name }}:</u></h5>
+  <a class="list-group-item list-group-item-action active">Emploi du Temp </a>
+     {% for emp in sem1 %}
+    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" >Emploi du temps semestre 1</a>
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+        <table class="table table-bordered">
+  <thead class="thead-dark ">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">S1</th>
+      <th scope="col">S2</th>
+      <th scope="col">S3</th>
+      <th scope="col">S4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Dimanche</th>
+      <td>{{ emp.Dimanche_S1 }}</td>
+      <td>{{ emp.Dimanche_S2 }}</td>
+      <td>{{ emp.Dimanche_S3 }}</td>
+      <td>{{ emp.Dimanche_S4 }}</td>
+    </tr>
+           <tr>
+      <th scope="row">Lundi</th>
+      <td>{{ emp.Lundi_S1 }}</td>
+      <td>{{ emp.Lundi_S2 }}</td>
+      <td>{{ emp.Lundi_S3 }}</td>
+      <td>{{ emp.Lundi_S4 }}</td>
+    </tr>
+           <tr>
+      <th scope="row">Mardi</th>
+      <td>{{ emp.Mardi_S1 }}</td>
+      <td>{{ emp.Mardi_S2 }}</td>
+      <td>{{ emp.Mardi_S3 }}</td>
+      <td>{{ emp.Mardi_S4 }}</td>
+    </tr>
+          <tr>
+      <th scope="row">Mercredi</th>
+      <td>{{ emp.Mercredi_S1 }}</td>
+      <td>{{ emp.Mercredi_S2 }}</td>
+      <td>{{ emp.Mercredi_S3 }}</td>
+      <td>{{ emp.Mercredi_S4 }}</td>
+    </tr>
+           <tr>
+      <th scope="row">Jeudi</th>
+      <td>{{ emp.jeudi_S1 }}</td>
+      <td>{{ emp.jeudi_S2 }}</td>
+      <td>{{ emp.jeudi_S3 }}</td>
+      <td>{{ emp.jeudi_S4 }}</td>
+    </tr>
+  </tbody></table>
+      </div>
+    </div>
+
+    {% endfor %}
+     {% for emp in sem2 %}
+    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">Emploi du temps semestre 2</a>
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="card card-body">
+       <table class="table">
+  <thead class="thead-dark table-bordered">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">S1</th>
+      <th scope="col">S2</th>
+      <th scope="col">S3</th>
+      <th scope="col">S4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Dimanche</th>
+      <td>{{ emp.Dimanche_S1 }}</td>
+      <td>{{ emp.Dimanche_S2 }}</td>
+      <td>{{ emp.Dimanche_S3 }}</td>
+      <td>{{ emp.Dimanche_S4 }}</td>
+    </tr>
+           <tr>
+      <th scope="row">Lundi</th>
+      <td>{{ emp.Lundi_S1 }}</td>
+      <td>{{ emp.Lundi_S2 }}</td>
+      <td>{{ emp.Lundi_S3 }}</td>
+      <td>{{ emp.Lundi_S4 }}</td>
+    </tr>
+           <tr>
+      <th scope="row">Mardi</th>
+      <td>{{ emp.Mardi_S1 }}</td>
+      <td>{{ emp.Mardi_S2 }}</td>
+      <td>{{ emp.Mardi_S3 }}</td>
+      <td>{{ emp.Mardi_S4 }}</td>
+    </tr>
+             <tr>
+      <th scope="row">Mercredi</th>
+      <td>{{ emp.Mercredi_S1 }}</td>
+      <td>{{ emp.Mercredi_S2 }}</td>
+      <td>{{ emp.Mercredi_S3 }}</td>
+      <td>{{ emp.Mercredi_S4 }}</td>
+    </tr>
+           <tr>
+      <th scope="row">Jeudi</th>
+      <td>{{ emp.jeudi_S1 }}</td>
+      <td>{{ emp.jeudi_S2 }}</td>
+      <td>{{ emp.jeudi_S3 }}</td>
+      <td>{{ emp.jeudi_S4 }}</td>
+    </tr>
+  </tbody></table>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load notifications_tags %}
+
+{% block head %}
+  {% register_notify_callbacks callbacks='fill_notification_list,fill_notification_badge' %}
+<title>Ajouter Etudiant</title>
+{% endblock %}
+
+{% block body %}
+         {% if messages %}
+<div class="alert alert-success" role="alert">
+ {% for message in messages %}
+    {% if message.tags %} {{ message.tags }}{% endif %}
+    {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+<div class="etudiant" >
+    <form method="post" action="{% url 'ajouter_et' %}">
+          <button type="button" class="btn btn-primary btn-lg btn-block">Ajouter Etudiant</button>
+
+          <table class="table table-hover">
+        {% csrf_token %}
+                       <tbody>
+    <tr>
+      <th scope="row">user:  :</th>
+      <td> {{ form.User }}</td>
+    </tr>
+      <tr>
+      <th scope="row">filiere:</th>
+      <td>{{ form.filiere }}</td>
+    </tr>
+       <tr>
+      <th scope="row">phone:  </th>
+      <td>{{ form.phone }}</td>
+    </tr>
+     <tr>
+      <th scope="row"> parcour:</th>
+      <td>{{ form.parcour }}</td>
+    </tr>
+                       </tbody></table>
+
+              <button type="submit" class="btn btn-primary">Ajouter</button>
+
+
+    </form>
+
+</div>
+
+{% endblock %}

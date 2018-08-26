@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Tableau de notes</title>
+
+{% endblock %}
+{% block body %}
+<div class="border border-info">
+<div class="tbl">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nom Etudiant</th>
+      <th scope="col">Parcour</th>
+      <th scope="col">Semestre</th>
+      <th scope="col">Matiére</th>
+      <th scope="col">Note_cc</th>
+      <th scope="col">Note Examin</th>
+        <th scope="col">Note Ratrappage</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for not in notes %}
+   {% for parc in parcour %}
+
+    <tr>
+      <th scope="row">{{ user.first_name}} {{user.last_name}}</th>
+      <td>{{ parc.nom }}</td>
+      <td>{{ not.semestre }}</td>
+          <td>{{ not.matière.Nom_Mat }}</td>
+        <td>{{ not.note_CC }}</td>
+        <td>{{ not.note_examin }}</td>
+        <td>{{ not.note_ratrappage }}</td>
+
+
+    </tr>
+
+  {% endfor %}
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Emploi_du_temp</title>
+{% endblock %}
+{% block body %}
+<div class="container">
+    <h4 class="font-weight-bold"><u>Emploi du temp examin {{ user.first_name }} {{ user.last_name }}:</u></h4>
+{% for emp in emploi %}
+
+     <table class="table table-bordered">
+  <thead class="thead-dark " >
+    <tr>
+      <th scope="col">Nom Enseignant</th>
+      <th scope="col">Dimanche</th>
+      <th scope="col">Lundi</th>
+      <th scope="col">mardi</th>
+      <th scope="col">Mercredi</th>
+        <th scope="col">Jeudi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{ emp.enseignant.User.first_name }} {{ emp.enseignant.User.last_name }}</th>
+      <td>{{ emp.Dimanche }}</td>
+      <td>{{ emp.Lundi }}</td>
+      <td>{{ emp.Mardi }}</td>
+      <td>{{ emp.Mercredi }}</td>
+        <td>{{ emp.Jeudi }}</td>
+    </tr>
+  </tbody></table>
+
+
+{% endfor %}
+</div>
+{% endblock %}

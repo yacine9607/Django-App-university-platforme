@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>dossier_trater</title>
+{% endblock %}
+{% block body %}
+<div class="container">
+    {% if document %}
+
+
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active">
+    Demande traité
+  </a>
+{% for doc in document %}
+<a href="{{ doc.file.url }}" class="list-group-item list-group-item-action">{{ doc.description }}</a>
+      {% endfor %}
+</div>
+    <a href="{% url 'delete' %}" class="btn btn-primary">Vider la liste</a>
+    {% else %}
+
+    <div class="list-group">
+        </br>
+     <a href="#" class="list-group-item list-group-item-action active">
+   Demande traité
+  </a>
+
+<div class="alert alert-warning">
+Traitement en cours
+</div>
+</div>
+
+
+    {% endif %}
+</div>
+
+{% endblock %}

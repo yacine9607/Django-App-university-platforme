@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load notifications_tags %}
+
+{% block head %}
+<title>suivi de demande</title>
+   {% register_notify_callbacks callbacks='fill_notification_list,fill_notification_badge' %}
+   {% endblock %}
+
+<h2>demande en cour de traitement</h2>
+
+
+
+
+{% endblock %}

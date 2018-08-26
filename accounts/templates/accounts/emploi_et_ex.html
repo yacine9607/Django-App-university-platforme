@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Emploi_du_temp</title>
+{% endblock %}
+{% block body %}
+<div class="container">
+{% for emp in emploi %}
+<div class="border border-info table-bordered">
+     <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Dimanche</th>
+      <th scope="col">Lundi</th>
+      <th scope="col">mardi</th>
+      <th scope="col">Mercredi</th>
+        <th scope="col">Jeudi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">#</th>
+      <td>{{ emp.Dimanche }}</td>
+      <td>{{ emp.Lundi }}</td>
+      <td>{{ emp.Mardi }}</td>
+      <td>{{ emp.Mercredi }}</td>
+        <td>{{ emp.Jeudi }}</td>
+    </tr>
+  </tbody></table>
+</div>
+
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>dossier_trater</title>
+{% endblock %}
+{% block body %}
+{% if note %}
+{% for nt in note %}
+  {% for not in nt %}
+
+
+<div class="tbl">
+
+    <h3 class="h33">{{  not.matière.Nom_Mat }}:</h3>
+  <br/>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nom Etudiant</th>
+
+      <th scope="col">Semestre</th>
+      <th scope="col">Matiére</th>
+       <th scope="col">Parcour</th>
+      <th scope="col">Note_cc</th>
+      <th scope="col">Note Examin</th>
+        <th scope="col">Note Ratrappage</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <tr>
+      <th scope="row">{{ not.etudiant.User.first_name}} {{not.etudiant.User.last_name}}</th>
+
+      <td>{{ not.semestre }}</td>
+        <td>{{ not.matière.Nom_Mat }}</td>
+       <td>{{ not.matière.Parcour.nom }}</td>
+      <td>{{ not.note_CC }}</td>
+        <td>{{ not.note_examin }}</td>
+        <td>{{ not.note_ratrappage }}</td>
+
+
+    </tr>
+
+
+  </tbody>
+</table>
+
+</div>
+
+ {% endfor %}
+{% endfor %}
+{% else %}
+<div class="alredy" >
+<a class="btn btn-primary btn-lg btn-block" href="" >Liste note</a>
+   <h2>Pas de note a afficher </h2>
+
+
+
+</div>
+{% endif %}
+{% endblock %}

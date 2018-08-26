@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load notifications_tags %}
+
+
+
+{% block head %}
+  {% register_notify_callbacks callbacks='fill_notification_list,fill_notification_badge' %}
+<title>upload_Demande</title>
+
+{% endblock %}
+
+{% block body %}
+         {% if messages %}
+<div class="alert alert-success" role="alert">
+ {% for message in messages %}
+    {% if message.tags %} {{ message.tags }}{% endif %}
+    {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+<div class="etudiant" >
+        <!-- Upload form. Note enctype attribute! -->
+        <form action="{% url 'upload_demande' %}" method="post" enctype="multipart/form-data">
+           <button type="button" class="btn btn-primary btn-lg btn-block">Envoie De Document</button>
+           <table class="table table-hover">
+            {% csrf_token %}
+
+             <tbody>
+    <tr>
+      <th scope="row">Adjoint Secrétariat:</th>
+      <td>{{ form.adjoint_secretariat }}</td>
+    </tr>
+     <tr>
+      <th scope="row">Nom d'émeteur:</th>
+      <td>{{ form.user }}</td>
+    </tr>
+       <tr>
+      <th scope="row">Description:</th>
+      <td>{{ form.description }}</td>
+    </tr>
+
+     <tr>
+      <th scope="row">Demande:</th>
+      <td>{{ form.file }} (format requis: .zip .rar)</td>
+    </tr>
+             </tbody></table>
+              <button type="submit" class="btn btn-primary">Upload</button>
+
+        </form>
+</div>
+
+{% endblock %}
